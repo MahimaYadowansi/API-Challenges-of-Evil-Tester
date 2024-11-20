@@ -1,0 +1,953 @@
+{
+	"info": {
+		"_postman_id": "360ba7bf-4938-4177-9af9-8d5c9fb8fc09",
+		"name": "API Challenges by evilTester",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38734170"
+	},
+	"item": [
+		{
+			"name": "status of all the challenges",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{EvilTester_url}}/challenges",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"challenges"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all the todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{EvilTester_url}}/todos",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get done todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{EvilTester_url}}/todos?doneStatus=true",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos"
+					],
+					"query": [
+						{
+							"key": "doneStatus",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET todos with id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{EvilTester_url}}/todos/:id",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "not found page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EvilTester_url}}/todo",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get header",
+			"request": {
+				"method": "HEAD",
+				"header": [],
+				"url": {
+					"raw": "{{EvilTester_url}}/todos",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post in todos",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n            \r\n            \"title\": \"new API creation\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EvilTester_url}}/todos",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a new challenger session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{EvilTester_url}}/challenger",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"challenger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/todos (400)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "98080818-d331-4993-9316-b606b24f0c5a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"create new todo\",\r\n        \"doneStatus\": \"bob\",\r\n        \"description\": \"created via insomnia\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EvilTester_url}}/todos",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unauthorized post",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "98080818-d331-4993-9316-b606b24f0c5a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EvilTester_url}}/secret/token",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"secret",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/todos(404)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"title\": \"update postman creation\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EvilTester_url}}/todos/784",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos",
+						"784"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get jira projects",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{JIRA_URL}}/rest/api/3/project",
+					"host": [
+						"{{JIRA_URL}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Issue Type in project",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{JIRA_URL}}/rest/api/3/issuetype/project?projectId=10004",
+					"host": [
+						"{{JIRA_URL}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"issuetype",
+						"project"
+					],
+					"query": [
+						{
+							"key": "projectId",
+							"value": "10004"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test authorization of jira",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{JIRA_URL}}/rest/api/3/myself",
+					"host": [
+						"{{JIRA_URL}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"3",
+						"myself"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update todos",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Retro meeting room\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EvilTester_url}}/todos/9",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update todos no title",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EvilTester_url}}/todos/9",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete todo",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{EvilTester_url}}/todos/6",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OPTIONS request on the /todos",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{EvilTester_url}}/todos",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get /hearbeat",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{EvilTester_url}}/heartbeat",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete /heartbeat",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{EvilTester_url}}/heartbeat",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/heartbeat(500)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{EvilTester_url}}/heartbeat",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/heartbeat(204)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{JIRA_TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mahima27kumari@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "85b250f3-d053-49b1-900d-a7278abf9430",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{EvilTester_url}}/heartbeat",
+					"host": [
+						"{{EvilTester_url}}"
+					],
+					"path": [
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{JIRA_TOKEN}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "mahima27kumari@gmail.com",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.test(\"check for non 200 status code\",function()\r",
+					"{\r",
+					"if(pm.response.code!=200)\r",
+					"{\r",
+					"    console.error(\"Request failed with status code: \" + pm.response.code);\r",
+					"}\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Status code is 200\", function () {\r",
+					"    pm.response.to.have.status(200);\r",
+					"});\r",
+					"\r",
+					"\r",
+					"let statuscode = pm.response.code;\r",
+					"console.log(\"Status Code: \", statuscode);\r",
+					"\r",
+					"const statusMessage = {\r",
+					"    200: \"OK\",\r",
+					"    201: \"Created\",\r",
+					"    204: \"No content\",\r",
+					"    400: \"Bad Request\",\r",
+					"    401: \"Unauthorized\",\r",
+					"    403: \"Forbidden\",\r",
+					"    404: \"Not Found\",\r",
+					"    405:  \"method is not allowed\",\r",
+					"    500: \"Internal Server Error\"\r",
+					"};\r",
+					"\r",
+					"let statusMeaning = statusMessage[statuscode] || \"Unknown Status Code\";\r",
+					"\r",
+					"console.log(\"Status Meaning: \", statusMeaning);\r",
+					"\r",
+					"if (statuscode !== 200) {\r",
+					"    let jiraUrl = \"***************/rest/api/3/issue\";\r",
+					"    let projectKEY = \"EAC\";\r",
+					"    let projectID = 10004;\r",
+					"    let reporterID = \"712020:848ae3d3-9d2b-4bfe-9b8d-2d7844fdaedf\";\r",
+					"    let username='mahima27kumari@gmail.com';\r",
+					"    let Token = \"****************************************\";\r",
+					"   let basicAuthValue = \"Basic \" + btoa(username + ':' + Token);\r",
+					"    pm.request.headers.add({\r",
+					"        key:'Authorization' ,\r",
+					"        value:basicAuthValue\r",
+					"    });\r",
+					" \r",
+					"\r",
+					"    let jiraSummary = `API Error: ${statuscode} - ${statusMeaning}`;\r",
+					"    let jiraDescription =  `The API returned status code ${statuscode} (${statusMeaning}). Please investigate.`;\r",
+					"\r",
+					"    // Configure Jira payload\r",
+					"    let jiraPayload = {\r",
+					"        fields: {\r",
+					"            project: {\r",
+					"                id: projectID,\r",
+					"               \r",
+					"            },\r",
+					"            summary: jiraSummary,\r",
+					"            description: {\r",
+					"                type: \"doc\",\r",
+					"                version: 1,\r",
+					"                content: [\r",
+					"                    {\r",
+					"                        type: \"paragraph\",\r",
+					"                        content: [\r",
+					"                            {\r",
+					"                                type: \"text\",\r",
+					"                                text: jiraDescription\r",
+					"                            }\r",
+					"                        ]\r",
+					"                    }\r",
+					"                ]\r",
+					"            },\r",
+					"            issuetype: {\r",
+					"                 id: \"10021\" // Issue type ID (Bug)\r",
+					"            },\r",
+					"            reporter: {\r",
+					"                id: reporterID\r",
+					"            }\r",
+					"        }\r",
+					"    };\r",
+					"\r",
+					"    // POST request to create a Jira issue\r",
+					"    pm.sendRequest({\r",
+					"        url: jiraUrl,\r",
+					"        method: \"POST\",\r",
+					"        header: {\r",
+					"            \"Authorization\": basicAuthValue,\r",
+					"            \"Content-Type\": \"application/json\"\r",
+					"        },\r",
+					"        body: {\r",
+					"            mode: \"raw\",\r",
+					"            raw: JSON.stringify(jiraPayload)\r",
+					"        }\r",
+					"    }, (err, res) => {\r",
+					"        if (err) {\r",
+					"            console.error(\"Error creating Jira issue: \", err);\r",
+					"        } else {\r",
+					"            console.log(\"Jira issue created successfully: \", res.json());\r",
+					"        }\r",
+					"    });\r",
+					"} else {\r",
+					"    console.log(\"Status code is 200. No Jira issue created.\");\r",
+					"}\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "EvilTester_url",
+			"value": "https://apichallenges.eviltester.com"
+		},
+		{
+			"key": "JIRA_URL",
+			"value": "************"
+		},
+		{
+			"key": "JIRA_TOKEN",
+			"value": "******************************"
+		}
+	]
+}
